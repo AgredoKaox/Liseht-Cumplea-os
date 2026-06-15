@@ -1,978 +1,890 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Feliz Cumpleaños Liseht</title>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Quicksand:wght@400;500;600&display=swap");
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feliz Cumpleaños Liseht</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Quicksand:wght@400;500;600&display=swap');
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-      body {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: linear-gradient(
-          135deg,
-          #f0e9ff 0%,
-          #e6dbff 50%,
-          #fbeefb 100%
-        );
-        font-family: "Quicksand", sans-serif;
-        padding: 20px;
-        overflow-x: hidden;
-      }
+  body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #F0E9FF 0%, #E6DBFF 50%, #FBEEFB 100%);
+    font-family: 'Quicksand', sans-serif;
+    padding: 20px;
+    overflow-x: hidden;
+  }
 
-      .container {
-        max-width: 640px;
-        width: 100%;
-        text-align: center;
-      }
+  .container {
+    max-width: 640px;
+    width: 100%;
+    text-align: center;
+  }
 
-      /* --- Formulario inicial --- */
-      #formStep {
-        background: rgba(255, 255, 255, 0.65);
-        border-radius: 20px;
-        padding: 40px 30px;
-        box-shadow: 0 8px 30px rgba(83, 74, 183, 0.15);
-      }
+  /* --- Formulario inicial --- */
+  #formStep {
+    background: rgba(255, 255, 255, 0.65);
+    border-radius: 20px;
+    padding: 40px 30px;
+    box-shadow: 0 8px 30px rgba(83, 74, 183, 0.15);
+  }
 
-      #formStep h1 {
-        font-family: "Playfair Display", serif;
-        font-size: 28px;
-        color: #534ab7;
-        margin-bottom: 10px;
-      }
+  #formStep h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: #534AB7;
+    margin-bottom: 10px;
+  }
 
-      #formStep p {
-        color: #5f5e5a;
-        margin-bottom: 20px;
-        font-size: 16px;
-      }
+  #formStep p {
+    color: #5F5E5A;
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
 
-      #nameInput {
-        width: 100%;
-        padding: 12px 16px;
-        font-size: 16px;
-        border: 2px solid #afa9ec;
-        border-radius: 12px;
-        text-align: center;
-        font-family: "Quicksand", sans-serif;
-        outline: none;
-        margin-bottom: 16px;
-        transition: border-color 0.3s;
-      }
+  #nameInput {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 2px solid #AFA9EC;
+    border-radius: 12px;
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    outline: none;
+    margin-bottom: 16px;
+    transition: border-color 0.3s;
+  }
 
-      #nameInput:focus {
-        border-color: #7f77dd;
-      }
+  #nameInput:focus {
+    border-color: #7F77DD;
+  }
 
-      #checkBtn,
-      #exitBtn {
-        background: linear-gradient(135deg, #7f77dd, #d4537e);
-        color: #fff;
-        border: none;
-        padding: 12px 30px;
-        border-radius: 30px;
-        font-size: 16px;
-        font-weight: 600;
-        font-family: "Quicksand", sans-serif;
-        cursor: pointer;
-        transition:
-          transform 0.2s,
-          box-shadow 0.2s;
-        box-shadow: 0 4px 14px rgba(127, 119, 221, 0.35);
-      }
+  #checkBtn, #exitBtn {
+    background: linear-gradient(135deg, #7F77DD, #D4537E);
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Quicksand', sans-serif;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 14px rgba(127, 119, 221, 0.35);
+  }
 
-      #checkBtn:hover,
-      #exitBtn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 18px rgba(127, 119, 221, 0.45);
-      }
+  #checkBtn:hover, #exitBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(127, 119, 221, 0.45);
+  }
 
-      #errorMsg {
-        color: #a32d2d;
-        font-size: 13px;
-        height: 20px;
-        margin-top: 12px;
-      }
+  #errorMsg {
+    color: #A32D2D;
+    font-size: 13px;
+    height: 20px;
+    margin-top: 12px;
+  }
 
-      /* --- Escena de celebración --- */
-      #celebration {
-        display: none;
-      }
+  /* --- Escena de celebración --- */
+  #celebration {
+    display: none;
+  }
 
-      .scene-wrapper {
-        background: rgba(255, 255, 255, 0.45);
-        border-radius: 24px;
-        padding: 16px;
-        box-shadow: 0 10px 40px rgba(83, 74, 183, 0.18);
-        position: relative;
-      }
+  .scene-wrapper {
+    background: rgba(255, 255, 255, 0.45);
+    border-radius: 24px;
+    padding: 16px;
+    box-shadow: 0 10px 40px rgba(83, 74, 183, 0.18);
+    position: relative;
+  }
 
-      .canvas-box {
-        position: relative;
-        width: 100%;
-        aspect-ratio: 680 / 600;
-      }
+  .canvas-box {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 680 / 600;
+  }
 
-      canvas {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-      }
+  canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 
-      /* --- Confeti de fondo, cubre toda la pantalla --- */
-      #confettiCanvas {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        pointer-events: none;
-        z-index: 999;
-      }
+  /* --- Confeti de fondo, cubre toda la pantalla --- */
+  #confettiCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 999;
+  }
 
-      .title-overlay {
-        position: absolute;
-        top: -2%;
-        left: 0;
-        width: 100%;
-        text-align: center;
-        pointer-events: none;
-      }
+  .title-overlay {
+    position: absolute;
+    top: -2%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    pointer-events: none;
+  }
 
-      .title-overlay span {
-        display: block;
-        font-family: "Playfair Display", serif;
-        opacity: 0;
-      }
+  .title-overlay span {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    opacity: 0;
+  }
 
-      .title-line1 {
-        font-size: clamp(20px, 5.8vw, 40px);
-        font-weight: 600;
-        color: #534ab7;
-      }
+  .title-line1 {
+    font-size: clamp(20px, 5.8vw, 40px);
+    font-weight: 600;
+    color: #534AB7;
+  }
 
-      .title-line2 {
-        font-size: clamp(26px, 7.2vw, 50px);
-        font-weight: 700;
-        color: #3c3489;
-      }
+  .title-line2 {
+    font-size: clamp(26px, 7.2vw, 50px);
+    font-weight: 700;
+    color: #3C3489;
+  }
 
-      @keyframes glowIn {
-        0% {
-          opacity: 0;
-          transform: scale(0.8);
-        }
-        60% {
-          opacity: 1;
-          transform: scale(1.08);
-        }
-        100% {
-          opacity: 1;
-          transform: scale(1);
-        }
-      }
-      @keyframes shimmer {
-        0%,
-        100% {
-          filter: drop-shadow(0 0 2px rgba(127, 119, 221, 0.3));
-        }
-        50% {
-          filter: drop-shadow(0 0 12px rgba(127, 119, 221, 0.65));
-        }
-      }
-      .title-overlay span.animate {
-        animation-name: glowIn, shimmer;
-        animation-duration: 1.2s, 2.5s;
-        animation-timing-function: ease-out, ease-in-out;
-        animation-iteration-count: 1, infinite;
-        animation-fill-mode: forwards, none;
-      }
-      .title-line1.animate {
-        animation-delay: 2.6s, 4s;
-      }
-      .title-line2.animate {
-        animation-delay: 3s, 4s;
-      }
+  @keyframes glowIn {
+    0%   { opacity: 0; transform: scale(0.8); }
+    60%  { opacity: 1; transform: scale(1.08); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  @keyframes shimmer {
+    0%, 100% { filter: drop-shadow(0 0 2px rgba(127, 119, 221, 0.3)); }
+    50%      { filter: drop-shadow(0 0 12px rgba(127, 119, 221, 0.65)); }
+  }
+  .title-overlay span.animate {
+    animation-name: glowIn, shimmer;
+    animation-duration: 1.2s, 2.5s;
+    animation-timing-function: ease-out, ease-in-out;
+    animation-iteration-count: 1, infinite;
+    animation-fill-mode: forwards, none;
+  }
+  .title-line1.animate { animation-delay: 2.6s, 4s; }
+  .title-line2.animate { animation-delay: 3.0s, 4s; }
 
-      @keyframes fadeIn {
-        to {
-          opacity: 1;
-        }
-      }
-      .message,
-      #exitBtn {
-        opacity: 0;
-      }
-      .message.animate {
-        animation: fadeIn 1.5s ease-out 4.4s forwards;
-      }
-      #exitBtn.animate {
-        animation: fadeIn 1s ease-out 5.2s forwards;
-      }
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+  .message, #exitBtn {
+    opacity: 0;
+  }
+  .message.animate {
+    animation: fadeIn 1.5s ease-out 4.4s forwards;
+  }
+  #exitBtn.animate {
+    animation: fadeIn 1s ease-out 5.2s forwards;
+  }
 
-      .exit-msg {
-        display: none;
-        font-family: "Playfair Display", serif;
-        font-size: 16px;
-        color: #534ab7;
-        margin-top: 14px;
-        opacity: 0;
-        transition: opacity 0.6s ease;
-      }
-      .exit-msg.show {
-        opacity: 1;
-      }
+  .exit-msg {
+    display: none;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: #534AB7;
+    margin-top: 14px;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+  .exit-msg.show {
+    opacity: 1;
+  }
 
-      .message {
-        font-family: "Playfair Display", serif;
-        font-size: 18px;
-        line-height: 1.9;
-        color: #444441;
-        margin-top: 16px;
-      }
+  .message {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    line-height: 1.9;
+    color: #444441;
+    margin-top: 16px;
+  }
 
-      .message strong {
-        color: #534ab7;
-        font-weight: 600;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <!-- Paso 1: formulario para ingresar el nombre -->
-      <div id="formStep">
-        <h1>Una sorpresa especial te espera</h1>
-        <p>Escribe el nombre de la cumpleañera para descubrirla</p>
-        <input
-          id="nameInput"
-          type="text"
-          placeholder="Escribe el nombre..."
-          autocomplete="off"
-        />
-        <br />
-        <button id="checkBtn">Revelar sorpresa</button>
-        <p id="errorMsg"></p>
+  .message strong {
+    color: #534AB7;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Paso 1: formulario para ingresar el nombre -->
+  <div id="formStep">
+    <h1>Una sorpresa especial te espera</h1>
+    <p>Escribe el nombre de la cumpleañera para descubrirla</p>
+    <input id="nameInput" type="text" placeholder="Escribe el nombre..." autocomplete="off" />
+    <br>
+    <button id="checkBtn">Revelar sorpresa</button>
+    <p id="errorMsg"></p>
+  </div>
+
+  <!-- Paso 2: celebración -->
+  <div id="celebration">
+    <div class="scene-wrapper">
+      <div class="canvas-box">
+        <canvas id="treeCanvas" width="680" height="600"></canvas>
+        <div class="title-overlay">
+          <span class="title-line1">¡Feliz cumpleaños,</span>
+          <span class="title-line2">Liseht!</span>
+        </div>
       </div>
 
-      <!-- Paso 2: celebración -->
-      <div id="celebration">
-        <div class="scene-wrapper">
-          <div class="canvas-box">
-            <canvas id="treeCanvas" width="680" height="600"></canvas>
-            <div class="title-overlay">
-              <span class="title-line1">¡Feliz cumpleaños,</span>
-              <span class="title-line2">Liseht!</span>
-            </div>
-          </div>
-
-          <!-- ============================================================
+      <!-- ============================================================
            MENSAJE PERSONALIZADO
            Edita el texto de aquí abajo con tu mensaje para Liseht.
            Puedes usar <br> para saltos de línea y <strong>...</strong>
            para resaltar frases importantes.
       ============================================================ -->
-          <p class="message">
-            ¡Feliz cumpleañossss primaaa! Mi prima favorita,<br />
-            que tenga un muy buen feliz cumpleaños y que la pase<br />
-            super chimba hoy, joda todo lo que quiera y lo que pueda,<br />
-            ríase y diviértase muchoooo hoy.<br />
-            Imaginar que la conocí bien hasta este año, porque de resto,<br />
-            de resto ni fu ni fa, y me alegra poder estar hablando con usted.<br />
-            <strong>La quiero mucho y que le vaya super bien.</strong>
-          </p>
-          <!-- ============================================================
+      <p class="message">
+        ¡Feliz cumpleañossss primaaa! Mi prima favorita,<br>
+        que tenga un muy buen feliz cumpleaños y que la pase<br>
+        super chimba hoy, joda todo lo que quiera y lo que pueda,<br>
+        ríase y diviértase muchoooo hoy.<br>
+        Imaginar que la conocí bien hasta este año, porque de resto,<br>
+        de resto ni fu ni fa, y me alegra poder estar hablando con usted.<br>
+        <strong>La quiero mucho y que le vaya super bien.</strong>
+      </p>
+      <!-- ============================================================
            FIN DEL MENSAJE PERSONALIZADO
       ============================================================ -->
 
-          <button id="exitBtn">Salir</button>
-          <p id="exitMsg" class="exit-msg"></p>
-        </div>
-      </div>
+      <button id="exitBtn">Salir</button>
+      <p id="exitMsg" class="exit-msg"></p>
     </div>
+  </div>
 
-    <canvas id="confettiCanvas"></canvas>
+</div>
 
-    <script>
-      function normalize(s) {
-        return s
-          .toLowerCase()
-          .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, "")
-          .trim()
-          .replace(/\s+/g, " ");
+<canvas id="confettiCanvas"></canvas>
+
+<script>
+  function normalize(s) {
+    return s
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .trim()
+      .replace(/\s+/g, ' ');
+  }
+
+  const checkBtn = document.getElementById('checkBtn');
+  const nameInput = document.getElementById('nameInput');
+  const errorMsg = document.getElementById('errorMsg');
+  const formStep = document.getElementById('formStep');
+  const celebration = document.getElementById('celebration');
+  const exitBtn = document.getElementById('exitBtn');
+  const exitMsg = document.getElementById('exitMsg');
+
+  // Detección simple de dispositivo móvil/pantalla pequeña, para
+  // reducir la cantidad de elementos animados y mejorar el rendimiento.
+  const IS_MOBILE = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) || window.innerWidth < 700;
+
+  function checkName() {
+    const val = normalize(nameInput.value);
+
+    if (!val) {
+      errorMsg.textContent = 'Escribe el nombre, por favor.';
+      return;
+    }
+
+    const isCorrect = val.includes('liseht') || val.includes('dayana');
+
+    if (isCorrect) {
+      formStep.style.display = 'none';
+      celebration.style.display = 'block';
+      startScene();
+      startConfetti();
+    } else {
+      errorMsg.textContent = 'Ese no es el nombre correcto. ¡Inténtalo de nuevo!';
+    }
+  }
+
+  checkBtn.addEventListener('click', checkName);
+  nameInput.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') checkName();
+  });
+
+  exitBtn.addEventListener('click', function () {
+    // Intenta cerrar la pestaña/ventana (solo funciona si fue abierta por script).
+    window.open('', '_self');
+    window.close();
+
+    // Si el navegador bloquea el cierre (lo más común), mostramos
+    // un mensaje de despedida y ocultamos la tarjeta.
+    setTimeout(function () {
+      document.querySelector('.scene-wrapper').style.display = 'none';
+      exitMsg.style.display = 'block';
+      exitMsg.textContent = 'Gracias por celebrar conmigo. ¡Hasta pronto!';
+      exitMsg.classList.add('show');
+    }, 300);
+  });
+
+  // ============================================================
+  //  ESCENA: árbol orgánico + 2000 corazones morados / lilas / violetas
+  // ============================================================
+
+  function startScene() {
+    void celebration.offsetHeight;
+
+    requestAnimationFrame(function () {
+      document.querySelectorAll('.title-overlay span, .message, #exitBtn')
+        .forEach(function (el) { el.classList.add('animate'); });
+
+      runTreeAnimation();
+    });
+  }
+
+  // Generador pseudoaleatorio con semilla, para que la forma sea
+  // siempre la misma cada vez que se carga la página.
+  function makeRandom(seed) {
+    let s = seed;
+    return function () {
+      s = (s * 9301 + 49297) % 233280;
+      return s / 233280;
+    };
+  }
+
+  const W = 680;
+  const H = 600;
+  const groundY = 500;
+
+  // --- Paleta: morados, lilas y violetas ---
+  const HEART_COLORS = [
+    '#9B8CFF', // violeta brillante
+    '#C3AEFF', // lila brillante
+    '#7C6CF0', // morado vívido
+    '#D8C6FF', // lila muy claro y luminoso
+    '#A78BFA', // lavanda
+    '#E0CFFF', // lila pastel brillante
+    '#8B7DF5', // violeta medio
+    '#B89CFE'  // lila violeta
+  ];
+
+  // --- Tronco: curva orgánica generada con varios puntos ---
+  function buildTrunkPath(rand) {
+    const baseX = W / 2;
+    const topY = 260;
+    const segments = 6;
+    const leftPts = [];
+    const rightPts = [];
+
+    for (let i = 0; i <= segments; i++) {
+      const t = i / segments;
+      const y = groundY - t * (groundY - topY);
+      const wiggle = Math.sin(t * Math.PI * 1.6) * 10 + (rand() - 0.5) * 6;
+      const halfWidth = (1 - t * 0.55) * 26;
+      leftPts.push({ x: baseX + wiggle - halfWidth, y: y });
+      rightPts.push({ x: baseX + wiggle + halfWidth, y: y });
+    }
+    return { leftPts: leftPts, rightPts: rightPts, baseX: baseX, topY: topY };
+  }
+
+  function smoothPath(ctx, pts) {
+    ctx.moveTo(pts[0].x, pts[0].y);
+    for (let i = 1; i < pts.length - 1; i++) {
+      const xc = (pts[i].x + pts[i + 1].x) / 2;
+      const yc = (pts[i].y + pts[i + 1].y) / 2;
+      ctx.quadraticCurveTo(pts[i].x, pts[i].y, xc, yc);
+    }
+    const last = pts[pts.length - 1];
+    ctx.lineTo(last.x, last.y);
+  }
+
+  // --- Ramas: árbol de ramas recursivo, ajustado para terminar
+  //     dentro de la nube de corazones (centro ~340,215) ---
+  function buildBranches(rand) {
+    const branches = [];
+
+    function recurse(x, y, angle, length, width, depth, maxDepth) {
+      const endX = x + Math.cos(angle) * length;
+      const endY = y + Math.sin(angle) * length;
+      branches.push({ x1: x, y1: y, x2: endX, y2: endY, width: width, depth: depth });
+
+      if (depth >= maxDepth) return;
+
+      const childCount = depth === 0 ? 2 : (rand() > 0.4 ? 2 : 1);
+      for (let i = 0; i < childCount; i++) {
+        const spread = 0.3 + rand() * 0.3;
+        const dir = i === 0 ? -1 : 1;
+        const newAngle = angle + dir * spread * (0.7 + rand() * 0.5);
+        const newLength = length * (0.62 + rand() * 0.12);
+        const newWidth = width * 0.65;
+        recurse(endX, endY, newAngle, newLength, newWidth, depth + 1, maxDepth);
       }
+    }
 
-      const checkBtn = document.getElementById("checkBtn");
-      const nameInput = document.getElementById("nameInput");
-      const errorMsg = document.getElementById("errorMsg");
-      const formStep = document.getElementById("formStep");
-      const celebration = document.getElementById("celebration");
-      const exitBtn = document.getElementById("exitBtn");
-      const exitMsg = document.getElementById("exitMsg");
+    // El tronco termina más abajo, cerca del centro de la copa de
+    // corazones (~340, 220), y las ramas se abren en abanico hacia
+    // los lóbulos de la copa en lugar de dispararse hacia arriba.
+    const topX = W / 2;
+    const topY = 260;
 
-      function checkName() {
-        const val = normalize(nameInput.value);
+    // Tres ramas principales cortas que abren en abanico amplio,
+    // cada una alcanza un lóbulo distinto de la copa.
+    recurse(topX, topY, -Math.PI / 2 - 1.0, 55, 12, 1, 3);  // hacia el lóbulo izquierdo
+    recurse(topX, topY, -Math.PI / 2 - 0.25, 60, 13, 1, 3); // hacia el centro-izquierda
+    recurse(topX, topY, -Math.PI / 2 + 0.25, 60, 13, 1, 3); // hacia el centro-derecha
+    recurse(topX, topY, -Math.PI / 2 + 1.0, 55, 12, 1, 3);  // hacia el lóbulo derecho
 
-        if (!val) {
-          errorMsg.textContent = "Escribe el nombre, por favor.";
-          return;
-        }
+    return branches;
+  }
 
-        const isCorrect = val.includes("liseht") || val.includes("dayana");
+  // --- Heart path (forma de corazón pequeña, dibujada con bezier) ---
+  function drawHeartShape(ctx, x, y, size, color, rotation) {
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate(rotation);
+    ctx.scale(size, size);
+    ctx.beginPath();
+    ctx.moveTo(0, 3);
+    ctx.bezierCurveTo(-0.5, -1, -4, -1, -4, 1.7);
+    ctx.bezierCurveTo(-4, 4, 0, 7, 0, 7);
+    ctx.bezierCurveTo(0, 7, 4, 4, 4, 1.7);
+    ctx.bezierCurveTo(4, -1, 0.5, -1, 0, 3);
+    ctx.closePath();
+    ctx.fillStyle = color;
+    ctx.fill();
+    ctx.restore();
+  }
 
-        if (isCorrect) {
-          formStep.style.display = "none";
-          celebration.style.display = "block";
-          startScene();
-          startConfetti();
-        } else {
-          errorMsg.textContent =
-            "Ese no es el nombre correcto. ¡Inténtalo de nuevo!";
-        }
-      }
+  // --- Genera 2000 puntos de corazones distribuidos en una silueta
+  //     de copa orgánica (varias nubes/lóbulos superpuestos) ---
+  function buildHeartPositions(rand, count) {
+    const blobs = [
+      { cx: 340, cy: 200, rx: 130, ry: 75 },
+      { cx: 250, cy: 235, rx: 95, ry: 70 },
+      { cx: 430, cy: 235, rx: 95, ry: 70 },
+      { cx: 300, cy: 270, rx: 90, ry: 60 },
+      { cx: 385, cy: 270, rx: 90, ry: 60 },
+      { cx: 340, cy: 160, rx: 75, ry: 45 },
+      { cx: 200, cy: 265, rx: 65, ry: 50 },
+      { cx: 480, cy: 265, rx: 65, ry: 50 }
+    ];
 
-      checkBtn.addEventListener("click", checkName);
-      nameInput.addEventListener("keypress", function (e) {
-        if (e.key === "Enter") checkName();
+    const points = [];
+    for (let i = 0; i < count; i++) {
+      const blob = blobs[Math.floor(rand() * blobs.length)];
+      // Distribución dentro de una elipse usando coordenadas polares
+      const angle = rand() * Math.PI * 2;
+      const radiusFactor = Math.sqrt(rand());
+      const x = blob.cx + Math.cos(angle) * blob.rx * radiusFactor;
+      const y = blob.cy + Math.sin(angle) * blob.ry * radiusFactor;
+
+      const size = 0.7 + rand() * 1.7;
+      const rotation = (rand() - 0.5) * 0.6;
+      const color = HEART_COLORS[Math.floor(rand() * HEART_COLORS.length)];
+
+      points.push({ x: x, y: y, size: size, rotation: rotation, color: color });
+    }
+
+    // Ordenar de arriba hacia abajo y de centro hacia afuera para que
+    // la animación de "crecimiento" se vea natural (de adentro hacia fuera).
+    points.sort(function (a, b) {
+      const da = Math.pow(a.x - 340, 2) + Math.pow(a.y - 220, 2) * 1.4;
+      const db = Math.pow(b.x - 340, 2) + Math.pow(b.y - 220, 2) * 1.4;
+      return da - db;
+    });
+
+    return points;
+  }
+
+  function runTreeAnimation() {
+    const canvas = document.getElementById('treeCanvas');
+    const ctx = canvas.getContext('2d');
+    const rand = makeRandom(42);
+
+    const trunk = buildTrunkPath(rand);
+    const branches = buildBranches(makeRandom(7));
+    const hearts = buildHeartPositions(makeRandom(99), IS_MOBILE ? 600 : 1400);
+
+    const sceneStart = performance.now();
+
+    // Tiempos (ms)
+    const T_TRUNK = 1200;
+    const T_TRUNK_DELAY = 150;
+    const T_BRANCHES = 1600;
+    const T_BRANCHES_DELAY = T_TRUNK_DELAY + T_TRUNK * 0.7;
+    const T_HEARTS_DELAY = T_BRANCHES_DELAY + T_BRANCHES * 0.55;
+    const T_HEARTS = 1800;
+    // Corazones flotantes ambientales (después de que la copa esté lista)
+    const T_FLOAT_DELAY = T_HEARTS_DELAY + T_HEARTS + 200;
+
+    // Corazones flotantes: un set pequeño y reciclado
+    const floaters = [];
+    const FLOATER_COUNT = IS_MOBILE ? 7 : 14;
+    for (let i = 0; i < FLOATER_COUNT; i++) {
+      floaters.push({
+        x: 80 + rand() * (W - 160),
+        startY: groundY - 20 + rand() * 60,
+        size: 0.8 + rand() * 1.4,
+        speed: 28 + rand() * 22,
+        color: HEART_COLORS[Math.floor(rand() * HEART_COLORS.length)],
+        offset: rand() * 6000
       });
+    }
 
-      exitBtn.addEventListener("click", function () {
-        // Intenta cerrar la pestaña/ventana (solo funciona si fue abierta por script).
-        window.open("", "_self");
-        window.close();
-
-        // Si el navegador bloquea el cierre (lo más común), mostramos
-        // un mensaje de despedida y ocultamos la tarjeta.
-        setTimeout(function () {
-          document.querySelector(".scene-wrapper").style.display = "none";
-          exitMsg.style.display = "block";
-          exitMsg.textContent = "Gracias por celebrar conmigo. ¡Hasta pronto!";
-          exitMsg.classList.add("show");
-        }, 300);
+    // Estrellitas de fondo que titilan suavemente por toda la escena
+    const stars = [];
+    const STAR_COUNT = IS_MOBILE ? 15 : 35;
+    for (let i = 0; i < STAR_COUNT; i++) {
+      stars.push({
+        x: rand() * W,
+        y: rand() * (H - 60),
+        size: 1 + rand() * 2.2,
+        speed: 0.0015 + rand() * 0.0025,
+        offset: rand() * Math.PI * 2
       });
+    }
 
-      // ============================================================
-      //  ESCENA: árbol orgánico + 2000 corazones morados / lilas / violetas
-      // ============================================================
+    // Destellos brillantes sobre la copa de corazones (efecto "sparkle")
+    const sparkles = [];
+    const sparkleAreas = [
+      { cx: 340, cy: 200, r: 130 },
+      { cx: 250, cy: 235, r: 90 },
+      { cx: 430, cy: 235, r: 90 },
+      { cx: 340, cy: 270, r: 95 }
+    ];
+    const SPARKLE_COUNT = IS_MOBILE ? 10 : 26;
+    for (let i = 0; i < SPARKLE_COUNT; i++) {
+      const area = sparkleAreas[Math.floor(rand() * sparkleAreas.length)];
+      const angle = rand() * Math.PI * 2;
+      const radiusFactor = Math.sqrt(rand());
+      sparkles.push({
+        x: area.cx + Math.cos(angle) * area.r * radiusFactor,
+        y: area.cy + Math.sin(angle) * area.r * radiusFactor,
+        size: 2 + rand() * 3,
+        speed: 0.0018 + rand() * 0.003,
+        offset: rand() * Math.PI * 2
+      });
+    }
 
-      function startScene() {
-        void celebration.offsetHeight;
+    function easeOutCubic(t) {
+      return 1 - Math.pow(1 - t, 3);
+    }
 
-        requestAnimationFrame(function () {
-          document
-            .querySelectorAll(".title-overlay span, .message, #exitBtn")
-            .forEach(function (el) {
-              el.classList.add("animate");
-            });
+    function drawBackground() {
+      const grad = ctx.createLinearGradient(0, 0, 0, H);
+      grad.addColorStop(0, '#FBF8FF');
+      grad.addColorStop(1, '#EFE3FF');
+      ctx.fillStyle = grad;
+      roundRect(ctx, 0, 0, W, H, 20);
+      ctx.fill();
 
-          runTreeAnimation();
-        });
+      // suelo
+      ctx.beginPath();
+      ctx.ellipse(340, groundY, 260, 35, 0, 0, Math.PI * 2);
+      ctx.fillStyle = '#E7DAFB';
+      ctx.fill();
+    }
+
+    function roundRect(ctx, x, y, w, h, r) {
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.arcTo(x + w, y, x + w, y + h, r);
+      ctx.arcTo(x + w, y + h, x, y + h, r);
+      ctx.arcTo(x, y + h, x, y, r);
+      ctx.arcTo(x, y, x + w, y, r);
+      ctx.closePath();
+    }
+
+    function drawTrunk(progress) {
+      const eased = easeOutCubic(progress);
+      const cutY = groundY - (groundY - trunk.topY) * eased;
+
+      ctx.save();
+      ctx.beginPath();
+      ctx.rect(0, cutY - 2, W, H);
+      ctx.clip();
+
+      ctx.beginPath();
+      smoothPath(ctx, trunk.leftPts);
+      const rightReversed = trunk.rightPts.slice().reverse();
+      for (let i = 0; i < rightReversed.length; i++) {
+        const p = rightReversed[i];
+        ctx.lineTo(p.x, p.y);
       }
+      ctx.closePath();
 
-      // Generador pseudoaleatorio con semilla, para que la forma sea
-      // siempre la misma cada vez que se carga la página.
-      function makeRandom(seed) {
-        let s = seed;
-        return function () {
-          s = (s * 9301 + 49297) % 233280;
-          return s / 233280;
-        };
-      }
+      const grad = ctx.createLinearGradient(trunk.baseX - 26, trunk.topY, trunk.baseX + 26, groundY);
+      grad.addColorStop(0, '#A9876B');
+      grad.addColorStop(0.5, '#8C6A4E');
+      grad.addColorStop(1, '#7A5A40');
+      ctx.fillStyle = grad;
+      ctx.fill();
 
-      const W = 680;
-      const H = 600;
-      const groundY = 500;
-
-      // --- Paleta: morados, lilas y violetas ---
-      const HEART_COLORS = [
-        "#9B8CFF", // violeta brillante
-        "#C3AEFF", // lila brillante
-        "#7C6CF0", // morado vívido
-        "#D8C6FF", // lila muy claro y luminoso
-        "#A78BFA", // lavanda
-        "#E0CFFF", // lila pastel brillante
-        "#8B7DF5", // violeta medio
-        "#B89CFE", // lila violeta
-      ];
-
-      // --- Tronco: curva orgánica generada con varios puntos ---
-      function buildTrunkPath(rand) {
-        const baseX = W / 2;
-        const topY = 260;
-        const segments = 6;
-        const leftPts = [];
-        const rightPts = [];
-
-        for (let i = 0; i <= segments; i++) {
-          const t = i / segments;
-          const y = groundY - t * (groundY - topY);
-          const wiggle = Math.sin(t * Math.PI * 1.6) * 10 + (rand() - 0.5) * 6;
-          const halfWidth = (1 - t * 0.55) * 26;
-          leftPts.push({ x: baseX + wiggle - halfWidth, y: y });
-          rightPts.push({ x: baseX + wiggle + halfWidth, y: y });
+      // textura de corteza: líneas verticales suaves
+      ctx.strokeStyle = 'rgba(70, 50, 35, 0.18)';
+      ctx.lineWidth = 1.5;
+      for (let i = 0; i < trunk.leftPts.length - 1; i++) {
+        const a = trunk.leftPts[i];
+        const b = trunk.leftPts[i + 1];
+        const c = trunk.rightPts[i];
+        const d = trunk.rightPts[i + 1];
+        for (let k = 1; k < 3; k++) {
+          const fx1 = a.x + (c.x - a.x) * (k / 3);
+          const fx2 = b.x + (d.x - b.x) * (k / 3);
+          ctx.beginPath();
+          ctx.moveTo(fx1, a.y);
+          ctx.lineTo(fx2, b.y);
+          ctx.stroke();
         }
-        return {
-          leftPts: leftPts,
-          rightPts: rightPts,
-          baseX: baseX,
-          topY: topY,
-        };
       }
 
-      function smoothPath(ctx, pts) {
-        ctx.moveTo(pts[0].x, pts[0].y);
-        for (let i = 1; i < pts.length - 1; i++) {
-          const xc = (pts[i].x + pts[i + 1].x) / 2;
-          const yc = (pts[i].y + pts[i + 1].y) / 2;
-          ctx.quadraticCurveTo(pts[i].x, pts[i].y, xc, yc);
+      ctx.restore();
+    }
+
+    function drawBranches(progress) {
+      const eased = easeOutCubic(progress);
+      const totalToShow = Math.ceil(branches.length * eased);
+
+      ctx.lineCap = 'round';
+      for (let i = 0; i < totalToShow; i++) {
+        const b = branches[i];
+        // Para la última rama parcial, recorta proporcionalmente
+        let x2 = b.x2, y2 = b.y2;
+        if (i === totalToShow - 1) {
+          const localProgress = (branches.length * eased) - i;
+          x2 = b.x1 + (b.x2 - b.x1) * Math.min(1, localProgress);
+          y2 = b.y1 + (b.y2 - b.y1) * Math.min(1, localProgress);
         }
-        const last = pts[pts.length - 1];
-        ctx.lineTo(last.x, last.y);
-      }
-
-      // --- Ramas: árbol de ramas recursivo, ajustado para terminar
-      //     dentro de la nube de corazones (centro ~340,215) ---
-      function buildBranches(rand) {
-        const branches = [];
-
-        function recurse(x, y, angle, length, width, depth, maxDepth) {
-          const endX = x + Math.cos(angle) * length;
-          const endY = y + Math.sin(angle) * length;
-          branches.push({
-            x1: x,
-            y1: y,
-            x2: endX,
-            y2: endY,
-            width: width,
-            depth: depth,
-          });
-
-          if (depth >= maxDepth) return;
-
-          const childCount = depth === 0 ? 2 : rand() > 0.4 ? 2 : 1;
-          for (let i = 0; i < childCount; i++) {
-            const spread = 0.3 + rand() * 0.3;
-            const dir = i === 0 ? -1 : 1;
-            const newAngle = angle + dir * spread * (0.7 + rand() * 0.5);
-            const newLength = length * (0.62 + rand() * 0.12);
-            const newWidth = width * 0.65;
-            recurse(
-              endX,
-              endY,
-              newAngle,
-              newLength,
-              newWidth,
-              depth + 1,
-              maxDepth,
-            );
-          }
-        }
-
-        // El tronco termina más abajo, cerca del centro de la copa de
-        // corazones (~340, 220), y las ramas se abren en abanico hacia
-        // los lóbulos de la copa en lugar de dispararse hacia arriba.
-        const topX = W / 2;
-        const topY = 260;
-
-        // Tres ramas principales cortas que abren en abanico amplio,
-        // cada una alcanza un lóbulo distinto de la copa.
-        recurse(topX, topY, -Math.PI / 2 - 1.0, 55, 12, 1, 3); // hacia el lóbulo izquierdo
-        recurse(topX, topY, -Math.PI / 2 - 0.25, 60, 13, 1, 3); // hacia el centro-izquierda
-        recurse(topX, topY, -Math.PI / 2 + 0.25, 60, 13, 1, 3); // hacia el centro-derecha
-        recurse(topX, topY, -Math.PI / 2 + 1.0, 55, 12, 1, 3); // hacia el lóbulo derecho
-
-        return branches;
-      }
-
-      // --- Heart path (forma de corazón pequeña, dibujada con bezier) ---
-      function drawHeartShape(ctx, x, y, size, color, rotation) {
-        ctx.save();
-        ctx.translate(x, y);
-        ctx.rotate(rotation);
-        ctx.scale(size, size);
-        ctx.shadowColor = "rgba(190, 160, 255, 0.55)";
-        ctx.shadowBlur = 3;
         ctx.beginPath();
-        ctx.moveTo(0, 3);
-        ctx.bezierCurveTo(-0.5, -1, -4, -1, -4, 1.7);
-        ctx.bezierCurveTo(-4, 4, 0, 7, 0, 7);
-        ctx.bezierCurveTo(0, 7, 4, 4, 4, 1.7);
-        ctx.bezierCurveTo(4, -1, 0.5, -1, 0, 3);
-        ctx.closePath();
-        ctx.fillStyle = color;
+        ctx.moveTo(b.x1, b.y1);
+        ctx.lineTo(x2, y2);
+        ctx.strokeStyle = '#8C6A4E';
+        ctx.lineWidth = Math.max(2, b.width);
+        ctx.stroke();
+      }
+    }
+
+    function drawHearts(progress) {
+      const eased = easeOutCubic(progress);
+      const totalToShow = Math.floor(hearts.length * eased);
+
+      for (let i = 0; i < totalToShow; i++) {
+        const h = hearts[i];
+        // pequeño efecto de "pop": escala creciente al aparecer
+        const localT = Math.min(1, (totalToShow - i) / 60);
+        const popScale = 0.4 + 0.6 * easeOutCubic(localT);
+        drawHeartShape(ctx, h.x, h.y, h.size * popScale, h.color, h.rotation);
+      }
+    }
+
+    function drawFloaters(t) {
+      const elapsed = t - sceneStart - T_FLOAT_DELAY;
+      if (elapsed < 0) return;
+
+      for (let i = 0; i < floaters.length; i++) {
+        const f = floaters[i];
+        const cycle = 4500;
+        const localT = ((elapsed + f.offset) % cycle) / cycle;
+        if (localT > 0.85) continue;
+
+        const y = f.startY - localT * f.speed * 8;
+        const opacity = Math.sin(Math.min(1, localT / 0.85) * Math.PI);
+        const scale = f.size * (0.8 + localT * 0.5);
+
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, opacity) * 0.85;
+        drawHeartShape(ctx, f.x, y, scale, f.color, 0);
+        ctx.restore();
+      }
+    }
+
+    // Estrellitas de fondo titilando sutilmente
+    function drawStars(t) {
+      for (let i = 0; i < stars.length; i++) {
+        const s = stars[i];
+        const tw = 0.5 + 0.5 * Math.sin(t * s.speed + s.offset);
+        ctx.save();
+        ctx.globalAlpha = 0.25 + tw * 0.45;
+        ctx.fillStyle = '#FFFFFF';
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
         ctx.fill();
         ctx.restore();
       }
+    }
 
-      // --- Genera 2000 puntos de corazones distribuidos en una silueta
-      //     de copa orgánica (varias nubes/lóbulos superpuestos) ---
-      function buildHeartPositions(rand, count) {
-        const blobs = [
-          { cx: 340, cy: 200, rx: 130, ry: 75 },
-          { cx: 250, cy: 235, rx: 95, ry: 70 },
-          { cx: 430, cy: 235, rx: 95, ry: 70 },
-          { cx: 300, cy: 270, rx: 90, ry: 60 },
-          { cx: 385, cy: 270, rx: 90, ry: 60 },
-          { cx: 340, cy: 160, rx: 75, ry: 45 },
-          { cx: 200, cy: 265, rx: 65, ry: 50 },
-          { cx: 480, cy: 265, rx: 65, ry: 50 },
-        ];
-
-        const points = [];
-        for (let i = 0; i < count; i++) {
-          const blob = blobs[Math.floor(rand() * blobs.length)];
-          // Distribución dentro de una elipse usando coordenadas polares
-          const angle = rand() * Math.PI * 2;
-          const radiusFactor = Math.sqrt(rand());
-          const x = blob.cx + Math.cos(angle) * blob.rx * radiusFactor;
-          const y = blob.cy + Math.sin(angle) * blob.ry * radiusFactor;
-
-          const size = 0.7 + rand() * 1.7;
-          const rotation = (rand() - 0.5) * 0.6;
-          const color = HEART_COLORS[Math.floor(rand() * HEART_COLORS.length)];
-
-          points.push({
-            x: x,
-            y: y,
-            size: size,
-            rotation: rotation,
-            color: color,
-          });
-        }
-
-        // Ordenar de arriba hacia abajo y de centro hacia afuera para que
-        // la animación de "crecimiento" se vea natural (de adentro hacia fuera).
-        points.sort(function (a, b) {
-          const da = Math.pow(a.x - 340, 2) + Math.pow(a.y - 220, 2) * 1.4;
-          const db = Math.pow(b.x - 340, 2) + Math.pow(b.y - 220, 2) * 1.4;
-          return da - db;
-        });
-
-        return points;
+    // Dibuja un destello en forma de estrella de 4 puntas con brillo
+    function drawSparkle(x, y, size, alpha) {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.globalAlpha = alpha;
+      if (!IS_MOBILE) {
+        ctx.shadowColor = 'rgba(255, 255, 255, 0.9)';
+        ctx.shadowBlur = 10;
       }
+      ctx.fillStyle = '#FFFFFF';
 
-      function runTreeAnimation() {
-        const canvas = document.getElementById("treeCanvas");
-        const ctx = canvas.getContext("2d");
-        const rand = makeRandom(42);
+      ctx.beginPath();
+      ctx.moveTo(0, -size * 2.4);
+      ctx.lineTo(size * 0.5, -size * 0.5);
+      ctx.lineTo(size * 2.4, 0);
+      ctx.lineTo(size * 0.5, size * 0.5);
+      ctx.lineTo(0, size * 2.4);
+      ctx.lineTo(-size * 0.5, size * 0.5);
+      ctx.lineTo(-size * 2.4, 0);
+      ctx.lineTo(-size * 0.5, -size * 0.5);
+      ctx.closePath();
+      ctx.fill();
 
-        const trunk = buildTrunkPath(rand);
-        const branches = buildBranches(makeRandom(7));
-        const hearts = buildHeartPositions(makeRandom(99), 2000);
+      ctx.restore();
+    }
 
-        const sceneStart = performance.now();
+    // Destellos brillantes que titilan sobre la copa de corazones,
+    // solo aparecen una vez que la copa está mayormente formada.
+    function drawSparkles(t, heartProgress) {
+      if (heartProgress < 0.6) return;
+      const fadeIn = Math.min(1, (heartProgress - 0.6) / 0.4);
 
-        // Tiempos (ms)
-        const T_TRUNK = 1200;
-        const T_TRUNK_DELAY = 150;
-        const T_BRANCHES = 1600;
-        const T_BRANCHES_DELAY = T_TRUNK_DELAY + T_TRUNK * 0.7;
-        const T_HEARTS_DELAY = T_BRANCHES_DELAY + T_BRANCHES * 0.55;
-        const T_HEARTS = 1800;
-        // Corazones flotantes ambientales (después de que la copa esté lista)
-        const T_FLOAT_DELAY = T_HEARTS_DELAY + T_HEARTS + 200;
-
-        // Corazones flotantes: un set pequeño y reciclado
-        const floaters = [];
-        for (let i = 0; i < 14; i++) {
-          floaters.push({
-            x: 80 + rand() * (W - 160),
-            startY: groundY - 20 + rand() * 60,
-            size: 0.8 + rand() * 1.4,
-            speed: 28 + rand() * 22,
-            color: HEART_COLORS[Math.floor(rand() * HEART_COLORS.length)],
-            offset: rand() * 6000,
-          });
-        }
-
-        // Estrellitas de fondo que titilan suavemente por toda la escena
-        const stars = [];
-        for (let i = 0; i < 35; i++) {
-          stars.push({
-            x: rand() * W,
-            y: rand() * (H - 60),
-            size: 1 + rand() * 2.2,
-            speed: 0.0015 + rand() * 0.0025,
-            offset: rand() * Math.PI * 2,
-          });
-        }
-
-        // Destellos brillantes sobre la copa de corazones (efecto "sparkle")
-        const sparkles = [];
-        const sparkleAreas = [
-          { cx: 340, cy: 200, r: 130 },
-          { cx: 250, cy: 235, r: 90 },
-          { cx: 430, cy: 235, r: 90 },
-          { cx: 340, cy: 270, r: 95 },
-        ];
-        for (let i = 0; i < 26; i++) {
-          const area = sparkleAreas[Math.floor(rand() * sparkleAreas.length)];
-          const angle = rand() * Math.PI * 2;
-          const radiusFactor = Math.sqrt(rand());
-          sparkles.push({
-            x: area.cx + Math.cos(angle) * area.r * radiusFactor,
-            y: area.cy + Math.sin(angle) * area.r * radiusFactor,
-            size: 2 + rand() * 3,
-            speed: 0.0018 + rand() * 0.003,
-            offset: rand() * Math.PI * 2,
-          });
-        }
-
-        function easeOutCubic(t) {
-          return 1 - Math.pow(1 - t, 3);
-        }
-
-        function drawBackground() {
-          const grad = ctx.createLinearGradient(0, 0, 0, H);
-          grad.addColorStop(0, "#FBF8FF");
-          grad.addColorStop(1, "#EFE3FF");
-          ctx.fillStyle = grad;
-          roundRect(ctx, 0, 0, W, H, 20);
-          ctx.fill();
-
-          // suelo
-          ctx.beginPath();
-          ctx.ellipse(340, groundY, 260, 35, 0, 0, Math.PI * 2);
-          ctx.fillStyle = "#E7DAFB";
-          ctx.fill();
-        }
-
-        function roundRect(ctx, x, y, w, h, r) {
-          ctx.beginPath();
-          ctx.moveTo(x + r, y);
-          ctx.arcTo(x + w, y, x + w, y + h, r);
-          ctx.arcTo(x + w, y + h, x, y + h, r);
-          ctx.arcTo(x, y + h, x, y, r);
-          ctx.arcTo(x, y, x + w, y, r);
-          ctx.closePath();
-        }
-
-        function drawTrunk(progress) {
-          const eased = easeOutCubic(progress);
-          const cutY = groundY - (groundY - trunk.topY) * eased;
-
-          ctx.save();
-          ctx.beginPath();
-          ctx.rect(0, cutY - 2, W, H);
-          ctx.clip();
-
-          ctx.beginPath();
-          smoothPath(ctx, trunk.leftPts);
-          const rightReversed = trunk.rightPts.slice().reverse();
-          for (let i = 0; i < rightReversed.length; i++) {
-            const p = rightReversed[i];
-            ctx.lineTo(p.x, p.y);
-          }
-          ctx.closePath();
-
-          const grad = ctx.createLinearGradient(
-            trunk.baseX - 26,
-            trunk.topY,
-            trunk.baseX + 26,
-            groundY,
-          );
-          grad.addColorStop(0, "#A9876B");
-          grad.addColorStop(0.5, "#8C6A4E");
-          grad.addColorStop(1, "#7A5A40");
-          ctx.fillStyle = grad;
-          ctx.fill();
-
-          // textura de corteza: líneas verticales suaves
-          ctx.strokeStyle = "rgba(70, 50, 35, 0.18)";
-          ctx.lineWidth = 1.5;
-          for (let i = 0; i < trunk.leftPts.length - 1; i++) {
-            const a = trunk.leftPts[i];
-            const b = trunk.leftPts[i + 1];
-            const c = trunk.rightPts[i];
-            const d = trunk.rightPts[i + 1];
-            for (let k = 1; k < 3; k++) {
-              const fx1 = a.x + (c.x - a.x) * (k / 3);
-              const fx2 = b.x + (d.x - b.x) * (k / 3);
-              ctx.beginPath();
-              ctx.moveTo(fx1, a.y);
-              ctx.lineTo(fx2, b.y);
-              ctx.stroke();
-            }
-          }
-
-          ctx.restore();
-        }
-
-        function drawBranches(progress) {
-          const eased = easeOutCubic(progress);
-          const totalToShow = Math.ceil(branches.length * eased);
-
-          ctx.lineCap = "round";
-          for (let i = 0; i < totalToShow; i++) {
-            const b = branches[i];
-            // Para la última rama parcial, recorta proporcionalmente
-            let x2 = b.x2,
-              y2 = b.y2;
-            if (i === totalToShow - 1) {
-              const localProgress = branches.length * eased - i;
-              x2 = b.x1 + (b.x2 - b.x1) * Math.min(1, localProgress);
-              y2 = b.y1 + (b.y2 - b.y1) * Math.min(1, localProgress);
-            }
-            ctx.beginPath();
-            ctx.moveTo(b.x1, b.y1);
-            ctx.lineTo(x2, y2);
-            ctx.strokeStyle = "#8C6A4E";
-            ctx.lineWidth = Math.max(2, b.width);
-            ctx.stroke();
-          }
-        }
-
-        function drawHearts(progress) {
-          const eased = easeOutCubic(progress);
-          const totalToShow = Math.floor(hearts.length * eased);
-
-          for (let i = 0; i < totalToShow; i++) {
-            const h = hearts[i];
-            // pequeño efecto de "pop": escala creciente al aparecer
-            const localT = Math.min(1, (totalToShow - i) / 60);
-            const popScale = 0.4 + 0.6 * easeOutCubic(localT);
-            drawHeartShape(
-              ctx,
-              h.x,
-              h.y,
-              h.size * popScale,
-              h.color,
-              h.rotation,
-            );
-          }
-        }
-
-        function drawFloaters(t) {
-          const elapsed = t - sceneStart - T_FLOAT_DELAY;
-          if (elapsed < 0) return;
-
-          for (let i = 0; i < floaters.length; i++) {
-            const f = floaters[i];
-            const cycle = 4500;
-            const localT = ((elapsed + f.offset) % cycle) / cycle;
-            if (localT > 0.85) continue;
-
-            const y = f.startY - localT * f.speed * 8;
-            const opacity = Math.sin(Math.min(1, localT / 0.85) * Math.PI);
-            const scale = f.size * (0.8 + localT * 0.5);
-
-            ctx.save();
-            ctx.globalAlpha = Math.max(0, opacity) * 0.85;
-            drawHeartShape(ctx, f.x, y, scale, f.color, 0);
-            ctx.restore();
-          }
-        }
-
-        // Estrellitas de fondo titilando sutilmente
-        function drawStars(t) {
-          for (let i = 0; i < stars.length; i++) {
-            const s = stars[i];
-            const tw = 0.5 + 0.5 * Math.sin(t * s.speed + s.offset);
-            ctx.save();
-            ctx.globalAlpha = 0.25 + tw * 0.45;
-            ctx.fillStyle = "#FFFFFF";
-            ctx.beginPath();
-            ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.restore();
-          }
-        }
-
-        // Dibuja un destello en forma de estrella de 4 puntas con brillo
-        function drawSparkle(x, y, size, alpha) {
-          ctx.save();
-          ctx.translate(x, y);
-          ctx.globalAlpha = alpha;
-          ctx.shadowColor = "rgba(255, 255, 255, 0.9)";
-          ctx.shadowBlur = 10;
-          ctx.fillStyle = "#FFFFFF";
-
-          ctx.beginPath();
-          ctx.moveTo(0, -size * 2.4);
-          ctx.lineTo(size * 0.5, -size * 0.5);
-          ctx.lineTo(size * 2.4, 0);
-          ctx.lineTo(size * 0.5, size * 0.5);
-          ctx.lineTo(0, size * 2.4);
-          ctx.lineTo(-size * 0.5, size * 0.5);
-          ctx.lineTo(-size * 2.4, 0);
-          ctx.lineTo(-size * 0.5, -size * 0.5);
-          ctx.closePath();
-          ctx.fill();
-
-          ctx.restore();
-        }
-
-        // Destellos brillantes que titilan sobre la copa de corazones,
-        // solo aparecen una vez que la copa está mayormente formada.
-        function drawSparkles(t, heartProgress) {
-          if (heartProgress < 0.6) return;
-          const fadeIn = Math.min(1, (heartProgress - 0.6) / 0.4);
-
-          for (let i = 0; i < sparkles.length; i++) {
-            const sp = sparkles[i];
-            const tw = 0.5 + 0.5 * Math.sin(t * sp.speed + sp.offset);
-            const alpha = fadeIn * (0.25 + tw * 0.7);
-            drawSparkle(sp.x, sp.y, sp.size, alpha);
-          }
-        }
-
-        function frame(t) {
-          const elapsed = t - sceneStart;
-          ctx.clearRect(0, 0, W, H);
-          drawBackground();
-          drawStars(t);
-
-          const trunkProgress = Math.max(
-            0,
-            Math.min(1, (elapsed - T_TRUNK_DELAY) / T_TRUNK),
-          );
-          drawTrunk(trunkProgress);
-
-          const branchProgress = Math.max(
-            0,
-            Math.min(1, (elapsed - T_BRANCHES_DELAY) / T_BRANCHES),
-          );
-          if (branchProgress > 0) drawBranches(branchProgress);
-
-          const heartProgress = Math.max(
-            0,
-            Math.min(1, (elapsed - T_HEARTS_DELAY) / T_HEARTS),
-          );
-          if (heartProgress > 0) drawHearts(heartProgress);
-
-          drawSparkles(t, heartProgress);
-          drawFloaters(t);
-
-          requestAnimationFrame(frame);
-        }
-
-        requestAnimationFrame(frame);
+      for (let i = 0; i < sparkles.length; i++) {
+        const sp = sparkles[i];
+        const tw = 0.5 + 0.5 * Math.sin(t * sp.speed + sp.offset);
+        const alpha = fadeIn * (0.25 + tw * 0.7);
+        drawSparkle(sp.x, sp.y, sp.size, alpha);
       }
+    }
 
-      // ============================================================
-      //  CONFETI: caída de confeti sobre toda la pantalla
-      // ============================================================
+    function frame(t) {
+      const elapsed = t - sceneStart;
+      ctx.clearRect(0, 0, W, H);
+      drawBackground();
+      drawStars(t);
 
-      function startConfetti() {
-        const canvas = document.getElementById("confettiCanvas");
-        const ctx = canvas.getContext("2d");
+      const trunkProgress = Math.max(0, Math.min(1, (elapsed - T_TRUNK_DELAY) / T_TRUNK));
+      drawTrunk(trunkProgress);
 
-        function resize() {
-          canvas.width = window.innerWidth;
-          canvas.height = window.innerHeight;
-        }
-        resize();
-        window.addEventListener("resize", resize);
+      const branchProgress = Math.max(0, Math.min(1, (elapsed - T_BRANCHES_DELAY) / T_BRANCHES));
+      if (branchProgress > 0) drawBranches(branchProgress);
 
-        const CONFETTI_COLORS = [
-          "#9B8CFF",
-          "#C3AEFF",
-          "#7C6CF0",
-          "#D8C6FF",
-          "#A78BFA",
-          "#E0CFFF",
-          "#8B7DF5",
-          "#B89CFE",
-          "#FFD580",
-          "#FF9EC4",
-        ];
+      const heartProgress = Math.max(0, Math.min(1, (elapsed - T_HEARTS_DELAY) / T_HEARTS));
+      if (heartProgress > 0) drawHearts(heartProgress);
 
-        const PIECE_COUNT = 140;
-        const pieces = [];
+      drawSparkles(t, heartProgress);
+      drawFloaters(t);
 
-        function makePiece(initial) {
-          return {
-            x: Math.random() * canvas.width,
-            y: initial
-              ? Math.random() * canvas.height
-              : -20 - Math.random() * 100,
-            size: 5 + Math.random() * 7,
-            speedY: 1.2 + Math.random() * 2.2,
-            speedX: (Math.random() - 0.5) * 1.4,
-            rotation: Math.random() * Math.PI * 2,
-            rotationSpeed: (Math.random() - 0.5) * 0.12,
-            color:
-              CONFETTI_COLORS[
-                Math.floor(Math.random() * CONFETTI_COLORS.length)
-              ],
-            shape: Math.random() > 0.5 ? "rect" : "circle",
-            sway: Math.random() * Math.PI * 2,
-          };
-        }
+      requestAnimationFrame(frame);
+    }
 
-        for (let i = 0; i < PIECE_COUNT; i++) {
-          pieces.push(makePiece(true));
-        }
+    requestAnimationFrame(frame);
+  }
 
-        // Duración total del confeti (ms). Después de este tiempo, la
-        // densidad disminuye gradualmente hasta detenerse.
-        const DURATION = 9000;
-        const startTime = performance.now();
+  // ============================================================
+  //  CONFETI: caída de confeti sobre toda la pantalla
+  // ============================================================
 
-        function drawPiece(p) {
-          ctx.save();
-          ctx.translate(p.x, p.y);
-          ctx.rotate(p.rotation);
-          ctx.fillStyle = p.color;
-          if (p.shape === "rect") {
-            ctx.fillRect(-p.size / 2, -p.size / 4, p.size, p.size / 2);
+  function startConfetti() {
+    const canvas = document.getElementById('confettiCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Limita la densidad de píxeles para no crear un buffer enorme
+    // en celulares con pantallas de alta resolución (DPR 3, 4...).
+    const dpr = Math.min(window.devicePixelRatio || 1, IS_MOBILE ? 1.5 : 2);
+
+    function resize() {
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      canvas.style.width = window.innerWidth + 'px';
+      canvas.style.height = window.innerHeight + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    const CONFETTI_COLORS = [
+      '#9B8CFF', '#C3AEFF', '#7C6CF0', '#D8C6FF',
+      '#A78BFA', '#E0CFFF', '#8B7DF5', '#B89CFE',
+      '#FFD580', '#FF9EC4'
+    ];
+
+    const PIECE_COUNT = IS_MOBILE ? 60 : 140;
+    const pieces = [];
+
+    function makePiece(initial) {
+      return {
+        x: Math.random() * window.innerWidth,
+        y: initial ? Math.random() * window.innerHeight : -20 - Math.random() * 100,
+        size: 5 + Math.random() * 7,
+        speedY: 1.2 + Math.random() * 2.2,
+        speedX: (Math.random() - 0.5) * 1.4,
+        rotation: Math.random() * Math.PI * 2,
+        rotationSpeed: (Math.random() - 0.5) * 0.12,
+        color: CONFETTI_COLORS[Math.floor(Math.random() * CONFETTI_COLORS.length)],
+        shape: Math.random() > 0.5 ? 'rect' : 'circle',
+        sway: Math.random() * Math.PI * 2
+      };
+    }
+
+    for (let i = 0; i < PIECE_COUNT; i++) {
+      pieces.push(makePiece(true));
+    }
+
+    // Duración total del confeti (ms). Después de este tiempo, la
+    // densidad disminuye gradualmente hasta detenerse.
+    const DURATION = 9000;
+    const startTime = performance.now();
+
+    function drawPiece(p) {
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rotation);
+      ctx.fillStyle = p.color;
+      if (p.shape === 'rect') {
+        ctx.fillRect(-p.size / 2, -p.size / 4, p.size, p.size / 2);
+      } else {
+        ctx.beginPath();
+        ctx.arc(0, 0, p.size / 2.5, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.restore();
+    }
+
+    function frame(t) {
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+      const elapsed = t - startTime;
+      const fadeOut = Math.max(0, Math.min(1, 1 - (elapsed - DURATION) / 2000));
+
+      for (let i = 0; i < pieces.length; i++) {
+        const p = pieces[i];
+        p.y += p.speedY;
+        p.sway += 0.03;
+        p.x += p.speedX + Math.sin(p.sway) * 0.6;
+        p.rotation += p.rotationSpeed;
+
+        if (p.y > window.innerHeight + 20) {
+          if (elapsed < DURATION) {
+            pieces[i] = makePiece(false);
           } else {
-            ctx.beginPath();
-            ctx.arc(0, 0, p.size / 2.5, 0, Math.PI * 2);
-            ctx.fill();
-          }
-          ctx.restore();
-        }
-
-        function frame(t) {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-          const elapsed = t - startTime;
-          const fadeOut = Math.max(
-            0,
-            Math.min(1, 1 - (elapsed - DURATION) / 2000),
-          );
-
-          for (let i = 0; i < pieces.length; i++) {
-            const p = pieces[i];
-            p.y += p.speedY;
-            p.sway += 0.03;
-            p.x += p.speedX + Math.sin(p.sway) * 0.6;
-            p.rotation += p.rotationSpeed;
-
-            if (p.y > canvas.height + 20) {
-              if (elapsed < DURATION) {
-                pieces[i] = makePiece(false);
-              } else {
-                continue;
-              }
-            }
-
-            ctx.globalAlpha = fadeOut;
-            drawPiece(pieces[i]);
-          }
-          ctx.globalAlpha = 1;
-
-          if (elapsed < DURATION + 2000) {
-            requestAnimationFrame(frame);
-          } else {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            continue;
           }
         }
 
-        requestAnimationFrame(frame);
+        ctx.globalAlpha = fadeOut;
+        drawPiece(pieces[i]);
       }
-    </script>
-  </body>
+      ctx.globalAlpha = 1;
+
+      if (elapsed < DURATION + 2000) {
+        requestAnimationFrame(frame);
+      } else {
+        ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      }
+    }
+
+    requestAnimationFrame(frame);
+  }
+</script>
+
+</body>
 </html>
